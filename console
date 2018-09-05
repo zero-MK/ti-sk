@@ -1,0 +1,218 @@
+#!/bin/bash
+source ./core/ft
+clear
+GREEN="\033[0;32m"
+PURPLE="\033[0;35m"
+RED="\033[0;31m"
+PURPLE="\033[0;35m"
+
+function logo()
+{
+ji=`dpkg -l | grep ncurses-utils`
+if [ ! $ji ]
+then
+	pkg install ncurses-utils
+fi
+clear
+readonly sw=$[`tput cols`]
+sw1=$sw
+while(( $sw1>0 ))
+do
+echo -e "${PURPLE}>\c"
+	let sw1--
+done
+sw2=$sw
+echo -e ">\c"
+d=`expr $sw2 - 2`
+
+until [ $d -eq 0 ];
+do
+	echo -e " \c"
+	let d--	
+done
+echo "<"
+echo -e ">\c"
+sw3_1=`expr $sw - 2`
+sw3_2=`expr $sw3_1 - 37`
+sw3_3=`expr $sw3_2 / 2`
+sw3_31=$sw3_3
+
+until [ $sw3_31 -eq 0 ]
+do
+	echo -e " \c"
+	let sw3_31--
+done
+echo -e "Termux Tool Installer by Scriptkiddies\c"
+until [ $sw3_3 -eq 1 ]
+do
+	echo -e " \c"
+	let sw3_3--
+done
+echo "<"
+
+sw4=$sw
+echo -e ">\c"
+sw4_1=`expr $sw4 - 2`
+
+until [ $sw4_1 -eq 0 ];
+do
+	        echo -e " \c"
+		 let sw4_1--
+done
+echo "<"
+sw5=$sw
+while ((sw5>1))
+do
+	echo -e ">\c"
+	let sw5--
+done
+echo -e ">\033[0m"
+
+}
+
+function snmenu()
+{
+	echo "[1]Back to main menu"
+	echo "[0]exit"
+	echo -e "ti-sk>>\c"
+	read snc
+	case $snc in
+		1)
+			menu
+			;;
+		0)
+			;;
+		*)
+			echo "Are you kidding me?"
+			snmenu
+	esac
+}
+
+function menu()
+{
+logo
+echo -e "${RED}[!].Please enter the number before selection\033[0m"
+echo -e "${GREEN}[1].metasploit-framework"
+echo "[2].sqlmap"
+echo "[3].vim"
+echo "[4].hexo"
+echo "[5].nmap"
+echo "[6].red_hawk"
+echo "[7].sqlscan"
+echo "[8].xattacker"
+echo "[9].xattackerfix"
+echo "[10].routersploit"
+echo "[11].websploit"
+echo "[12].owscan"
+echo "[13].msfpc"
+echo "[14].change_sources"
+echo "[15].xerosploit"
+echo "[16].beef-xss"
+echo "[17].oh-my-fish"
+echo "[18].hydra"
+echo "[19].black_hydra"
+echo "[20].msfpg"
+echo -e "[0].atlio(A bash script to install linux on termux)\033[0m"
+echo -e "${RED}[00].exit\033[0m"
+swn=$sw
+while(( $swn>0 ))
+do
+echo -e "${PURPLE}=\c"
+	let swn--
+done
+echo -e "ti-sk>>\c"
+read pc
+case $pc in 
+	1)
+		msfconsole
+		snmenu
+		;;
+	2)
+		sqlmap
+		snmenu
+		;;
+	3)
+		vim
+		snmenu
+		;;
+	4)
+		hexo
+		snmenu
+		;;
+	5)
+		nmap
+		snmenu
+		;;
+	6)
+		red_hawk
+		snmenu
+		;;
+	7)
+		sqlscan
+		snmenu
+		;;
+	8)
+		xattacker
+		snmenu
+		;;
+	9)
+		xattackerfix
+		snmenu
+		;;
+	10)
+		rsf
+		snmenu
+		;;
+	11)
+		wsf
+		snmenu
+		;;
+	12)
+		owscan
+		snmenu
+		;;
+	13)
+		msfpc
+		snmenu
+		;;
+	14)
+		 changesources
+		 snmenu
+		 ;;
+	15)
+		xerosploit
+		snmenu
+		;;
+	16)
+		beef-xss
+		snmenu
+		;; 
+	17)
+		omf
+		snmenu
+		;;
+	18)
+		hydra
+		snmenu
+		;;
+	19)
+		black_hydra
+		snmenu
+		;;
+	20)
+		msfpg
+		snmenu
+		;;
+	0)
+		atlio
+		snmenu
+		;;
+	00)
+		;;
+	*)
+		echo "Are you kidding me?"
+		menu
+		;;
+esac
+}
+menu
