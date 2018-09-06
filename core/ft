@@ -1,7 +1,7 @@
 function init()
 {
-pkg update && pkg upgrade
 cd $HOME
+pkg update && pkg upgrade
 }
 
 function msfconsole()
@@ -12,7 +12,7 @@ wget https://Auxilus.github.io/metasploit.sh
 bash metasploit.sh
 echo "Whether or not Configure the quick start PostgreSQL command y/n"
 read choose
-case $choose in 
+case $choose in
 	y|Y)
 		echo -e "Enter your custom alias"
 		read customalias
@@ -24,7 +24,7 @@ case $choose in
 	 ;;
 esac
 }
-	
+
 function sqlmap()
 {
 init
@@ -32,7 +32,7 @@ pkg install git python2
 git clone https://github.com/sqlmapproject/sqlmap.git
 echo "Do you want to set up a quick start command y/n"
 read choose
-case $choose in 
+case $choose in
 	y|Y)
 		echo -e "alias sqlmap=\"python2 $HOME/sqlmap/sqlmap.py\"" >> $PREFIX/etc/bash.bashrc
 		echo "setup is finished, you only need to input sqlmap in the terminal to start sqlmap."
@@ -91,7 +91,7 @@ pkg install git php
 git clone http://www.github.com/Cvar1984/sqlscan
 echo "Do you want to set up a quick start command y/n"
 read choose
-case $choose in 
+case $choose in
 	y|Y)
 		echo -e "alias sqlscan=\"php $HOME/sqlscan/sqlscan.php\"" >> $PREFIX/etc/bash.bashrc
 		echo "Done"
@@ -121,7 +121,7 @@ cd $HOME/XAttacker
 echo "please enter a number"
 select error in "HTTP/Request.pm" "LWP/UserAgent.pm"
 do
-	case $error in 
+	case $error in
 		HTTP/Request.pm)
 			cpan HTTP/Request.pm
 			break
@@ -220,7 +220,7 @@ function atlio()
 {
 init
 pkg in curl
-curl https://raw.githubusercontent.com/YadominJinta/atilo/master/atilo -o ~/atilo 
+curl https://raw.githubusercontent.com/YadominJinta/atilo/master/atilo -o ~/atilo
 chmod +x atilo
 echo -e "alias atlio=\"bash $HOME/alias\"" >> $PREFIX/etc/bash.bashrc
 echo -e "Done you can run \"atilo help\" to see how to use it"
@@ -291,4 +291,18 @@ pkg update && pkg uograde
 pkg install git
 git clone https://github.com/haxzsadik/MSF-Pg
 echo "Done"
+}
+
+function s_e_t()
+{
+init
+pkg install python2 figlet python python-dev python2-dev wget tar termux-exec
+echo "thanks to Hax4us YT channel"
+wget https://hax4us.github.io/setoolkit_7.7.2.gz
+tar -xf setoolkit_7.7.2.gz
+cd setoolkit
+python setup.py install
+figlet Installed
+echo " Setoolkit is Installed in Your Termux "
+echo " Now Type (setoolkit) without quotes to Run Setoolkit In Your Termux "
 }
