@@ -272,8 +272,8 @@ function hydra()
 {
 pkg update && pkg uograde
 pkg install hydra
-echo "Done"
-}
+echo "Done
+"}
 
 function black_hydra()
 {
@@ -305,4 +305,12 @@ python setup.py install
 figlet Installed
 echo " Setoolkit is Installed in Your Termux "
 echo " Now Type (setoolkit) without quotes to Run Setoolkit In Your Termux "
+}
+
+function nikto()
+{
+init
+pkg install perl git
+git clone https://github.com/sullo/nikto.git
+echo -e "alias nikto=\"perl $HOME/nikto/nikto.pl\"" >> $PREFIX/etc/bash.bashrc
 }

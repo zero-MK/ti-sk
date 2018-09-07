@@ -113,6 +113,7 @@ echo "[18].hydra"
 echo "[19].black_hydra"
 echo "[20].msfpg"
 echo "[21].setoolkit"
+echo "[22].nikto"
 echo -e "[0].atlio(A bash script to install linux on termux)\033[0m"
 echo -e "${RED}[00].exit\033[0m"
 swn=$sw
@@ -208,7 +209,11 @@ case $pc in
 	  s_e_t
 		snmenu
 		;;
-	0)
+		22)
+		nikto
+		snmenu
+		;;
+		0)
 		atlio
 		snmenu
 		;;
