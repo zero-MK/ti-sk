@@ -1,4 +1,4 @@
-#!/bin/bash
+
 source ./core/ft
 clear
 GREEN="\033[0;32m"
@@ -209,11 +209,11 @@ case $pc in
 	  s_e_t
 		snmenu
 		;;
-		22)
+	22)
 		nikto
 		snmenu
 		;;
-		0)
+	0)
 		atlio
 		snmenu
 		;;
