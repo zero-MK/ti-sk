@@ -54,7 +54,7 @@ function hexo()
 {
 init
 pkg install nodejs -y
-npm install hexo-cil -g
+npm install hexo-cli -g
 echo "Done"
 }
 
