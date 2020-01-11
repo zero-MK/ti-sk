@@ -27,12 +27,7 @@ cd ti-sk
 
 
 
-chmod +x console
-
-
-
-
-./console
+bash ./console
 
 
 
